@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday 🎉</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fd8286, #f5bfb1);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <!-- First Page -->
+  <div id="page1"
+       class="bg-white shadow-2xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-pink-500 mb-4">
+      🎂 Happy Birthday! 🎂
+    </h1>
+
+    <p class="text-base sm:text-lg text-gray-700 mb-6">
+      Wishing you a day filled with love, laughter, and everything that makes you smile.
+      May this year bring you happiness, success, and unforgettable memories.
+    </p>
+
+    <div class="text-5xl sm:text-6xl mb-6">
+      🎉🎈🎁
+    </div>
+
+    <p class="text-gray-600 italic text-sm sm:text-base">
+      "Count your life by smiles, not tears. Count your age by friends, not years."
+    </p>
+
+    <button onclick="celebrate()"
+      class="mt-6 px-6 py-3 bg-pink-500 text-white rounded-xl shadow hover:bg-pink-600 transition w-full sm:w-auto">
+      Click for a Surprise 🎊
+    </button>
+
+    <p id="surprise"
+       class="mt-4 text-lg sm:text-xl font-semibold text-purple-600 hidden">
+      You are amazing! Have the best birthday ever! 💖
+    </p>
+
+  </div>
+
+  <!-- Second Page -->
+  <div id="page2"
+       class="hidden bg-white shadow-2xl rounded-2xl p-6 sm:p-8 max-w-md w-full text-center">
+
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-pink-500 mb-5">
+      🎉 Happy Birthday ❤️
+    </h1>
+
+    <video controls autoplay loop
+       class="w-full h-56 object-cover rounded-2xl mb-5">
+        <source src="https://msqqtccgimrcwqsparpl.supabase.co/storage/v1/object/public/birthday/birthday.mp4" type="video/mp4">
+    </video>
+
+    <!-- Birthday Message -->
+    <p class="text-gray-700 text-lg leading-8 mb-6">
+      Happy Birthday! 🎂❤️<br><br>
+      May your day be filled with love, laughter and countless beautiful memories.
+      Wishing you happiness, success and all the joy in the world.
+      Keep smiling and shining always. 💖
+    </p>
+
+    <!-- Instagram Reel Button -->
+    <a href="https://www.instagram.com/reel/DVfeZOIDvKB/?igsh=MThpcHV1bncwN2Y4Yg=="
+       target="_blank"
+       class="inline-block px-6 py-3 bg-pink-500 text-white rounded-xl shadow hover:bg-pink-600 transition">
+      🎥 Here a Birthday Reel For You 
+    </a>
+
+  </div>
+
+  <script>
+    function celebrate() {
+
+      // Show text
+      document.getElementById("surprise").classList.remove("hidden");
+
+      // First confetti
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          spread: 120,
+          origin: { x: 0.1 }
+        });
+
+        confetti({
+          particleCount: 100,
+          spread: 120,
+          origin: { x: 0.9 }
+        });
+      }, 300);
+
+      // Open second page after 2 seconds
+      setTimeout(() => {
+        document.getElementById("page1").classList.add("hidden");
+        document.getElementById("page2").classList.remove("hidden");
+
+        confetti({
+          particleCount: 200,
+          spread: 180,
+          origin: { y: 0.6 }
+        });
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
+
